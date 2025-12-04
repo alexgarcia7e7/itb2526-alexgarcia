@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio personal de Alex: proyectos destacados, listado y contacto." />
+  <meta name="author" content="Alex" />
+  <title>Portfolio de Alex</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Ejemplo tipografía opcional -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<script src="script.js"></script>
+
+<body>
+
+  <!-- Header reutilizable -->
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Ir a inicio">A</a>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main con dos secciones en paralelo -->
+  <main class="layout">
+    <!-- Sección izquierda: presentación + aside -->
+    <section class="panel panel-left" aria-labelledby="presentacion-title">
+      <header class="panel-header">
+        <h2 id="presentacion-title">Sobre mí</h2>
+      </header>
+
+      <article class="about">
+        <p>Soy Alex, admin de sistemas y diseñador de redes. Me gusta crear laboratorios, automatizar tareas y documentar con claridad.</p>
+        <p>Este portfolio recoge mis proyectos y aprendizajes clave.</p>
+      </article>
+
+      <aside class="panel-aside" aria-labelledby="aside-title">
+        <h3 id="aside-title">Enlaces rápidos</h3>
+        <ul>
+          <li><a href="proyectos.html">Ver todos los proyectos</a></li>
+          <li><a href="contacto.html">Contactar</a></li>
+          <li><a href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a></li>
+        </ul>
+      </aside>
+
+      <footer class="panel-footer">
+        <p>Disponible para colaboraciones y retos técnicos.</p>
+      </footer>
+    </section>
+
+    <!-- Sección derecha: proyectos destacados -->
+    <section class="panel panel-right" aria-labelledby="destacados-title">
+      <header class="panel-header">
+        <h2 id="destacados-title">Proyectos destacados</h2>
+      </header>
+
+      <article class="card">
+        <header class="card-header">
+          <h3>Proyecto 1: Laboratorio de routing</h3>
+        </header>
+        <p>Topología multi-router con DNS simulado, rutas estáticas y verificación segmentada.</p>
+        <p>Tecnologías: Cisco/FRR, diagramas, documentación reproducible.</p>
+        <footer class="card-footer">
+          <a class="btn" href="proyecto1.html" aria-label="Ver detalle del Proyecto 1">Ver detalle</a>
+        </footer>
+      </article>
+
+      <article class="card">
+        <header class="card-header">
+          <h3>Proyecto 2: Portfolio web y CI/CD</h3>
+        </header>
+        <p>Sitio estático con HTML/CSS/JS, despliegue en GitHub Pages y flujo de trabajo con Git.</p>
+        <p>Enfoque en accesibilidad, responsive y documentación clara.</p>
+        <footer class="card-footer">
+          <a class="btn" href="proyecto2.html" aria-label="Ver detalle del Proyecto 2">Ver detalle</a>
+        </footer>
+      </article>
+
+      <footer class="panel-footer">
+        <p>Los dos proyectos anteriores enlazan a su página de detalle, como pide el enunciado.</p>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Footer reutilizable -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Alex. Todos los derechos reservados.</p>
+    <ul class="social">
+      <li><a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="mailto:tu-email@example.com">Email</a></li>
+    </ul>
+  </footer>
+
+  <!-- JS: animaciones y mejoras -->
+  <script src="script.js" defer></script>
+</body>
+</html>

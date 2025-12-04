@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Llistat de Projectes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<script src="script1.js"></script>
+<body>
+
+  <!-- Header igual que en index -->
+  <header class="site-header">
+    <a class="brand" href="index.html">A</a>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="index.html">Inici</a></li>
+        <li><a href="proyectos.html" aria-current="page">Projectes</a></li>
+        <li><a href="contacte.html">Contacte</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main con listado -->
+  <main class="layout">
+    <section class="panel panel-right" aria-labelledby="listado-title">
+      <header class="panel-header">
+        <h2 id="listado-title">Tots els projectes</h2>
+      </header>
+
+      <!-- Proyecto 1 -->
+      <article class="card">
+        <header class="card-header">
+          <h3>Laboratori de Routing</h3>
+        </header>
+        <p>Topologia multi-router amb DNS simulat i verificació segmentada.</p>
+        <footer class="card-footer">
+          <a class="btn" href="proyecto1.html">Veure detall</a>
+        </footer>
+      </article>
+
+      <!-- Proyecto 2 -->
+      <article class="card">
+        <header class="card-header">
+          <h3>Web personal amb GitHub Pages</h3>
+        </header>
+        <p>Desplegament automatitzat amb HTML, CSS i JS. Responsive i documentació clara.</p>
+        <footer class="card-footer">
+          <a class="btn" href="proyecto2.html">Veure detall</a>
+        </footer>
+      </article>
+
+      <!-- Proyecto 3 -->
+      <article class="card">
+        <header class="card-header">
+          <h3>Script de Backup</h3>
+        </header>
+        <p>Automatització de còpies de seguretat amb compressió i enviament remot.</p>
+      </article>
+
+      <!-- Proyecto 4 -->
+      <article class="card">
+        <header class="card-header">
+          <h3>Monitorització amb Grafana</h3>
+        </header>
+        <p>Dashboard amb alertes i visualització en temps real.</p>
+      </article>
+
+      <!-- Proyecto 5 -->
+      <article class="card">
+        <header class="card-header">
+          <h3>Documentació amb Markdown</h3>
+        </header>
+        <p>Guies tècniques amb estructura clara i exportació a PDF.</p>
+      </article>
+
+      <footer class="panel-footer">
+        <p>Els dos primers projectes tenen enllaç al seu detall, com demana l’enunciat.</p>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Footer igual que en index -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Alex. Tots els drets reservats.</p>
+    <ul class="social">
+      <li><a href="https://linkedin.com/in/tu-usuari" target="_blank">LinkedIn</a></li>
+      <li><a href="https://github.com/tu-usuari" target="_blank">GitHub</a></li>
+      <li><a href="mailto:tu-email@example.com">Email</a></li>
+    </ul>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
