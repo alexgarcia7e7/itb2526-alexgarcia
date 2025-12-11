@@ -1,3 +1,13 @@
+:root {
+  --surface: #1e2340;       /* color de fondo de las tarjetas */
+  --border: #2a2f52;        /* color del borde */
+  --radius: 12px;           /* radio de las esquinas */
+  --shadow: 0 4px 12px rgba(0,0,0,0.3); /* sombra */
+  --text: #ffffff;          /* color del texto */
+  --grad: linear-gradient(135deg, #6b7cff, #20d9ff); /* degradado */
+}
+
+
 .project-list {
   padding: 2rem;
   max-width: 900px;
