@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Firewall Avançat - Projecte</title>
+  <style>
+    :root {
+      --surface: #1e2340; --border: #2a2f52; --radius: 12px; --shadow: 0 4px 12px rgba(0,0,0,0.3);
+      --text: #ffffff; --accent: #20d9ff;
+    }
+    body { margin:0; font-family: Arial, sans-serif; background:#0f1221; color:var(--text); }
+    .site-header, .site-footer { background:#171a2e; padding:1rem 2rem; }
+    .brand { font-weight:700; color:var(--text); text-decoration:none; }
+    .site-nav ul { list-style:none; display:flex; gap:1rem; margin:0; padding:0; }
+    .site-nav a { color:var(--text); text-decoration:none; padding:0.4rem 0.8rem; border-radius:6px; }
+    .site-nav a:hover { background: var(--border); }
+    main { max-width:900px; margin:2rem auto; padding:1rem; }
+    .panel { background:#171a2e; border-radius:var(--radius); padding:1.5rem; box-shadow:var(--shadow); }
+    .panel-header { border-bottom:1px solid var(--border); margin-bottom:1rem; }
+    h1 { margin:0 0 0.5rem; }
+    .content p { line-height:1.7; margin:0 0 1rem; color:#d7e6ff; }
+    .detalle { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; margin-bottom:0.8rem; }
+    .actions { display:flex; gap:0.6rem; margin-top:1rem; }
+    .btn { padding:0.5rem 0.9rem; border-radius:8px; background:rgba(255,255,255,0.12); color:#fff; text-decoration:none; }
+    .btn:hover { background:rgba(255,255,255,0.25); }
+    .badge { display:inline-block; margin-top:0.8rem; padding:0.3rem 0.6rem; border-radius:999px; background:rgba(32,217,255,0.12); color:#9fe9ff; font-size:0.85rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index/index.html">A</a>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="../index/index.html">Inici</a></li>
+        <li><a href="nombrar_proyectos.html">Projectes</a></li>
+        <li><a href="../contacte/formulari.html">Contacte</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="panel" aria-labelledby="title">
+      <header class="panel-header">
+        <h1 id="title">Firewall Avançat</h1>
+      </header>
+      <div class="content">
+        <p>Aquest projecte consisteix en la configuració avançada d’un firewall empresarial.</p>
+        <p>S’analitzen necessitats de segmentació de xarxa i definició de polítiques per zones (WAN, DMZ, LAN).</p>
+        <p>S’implementen regles dinàmiques, inspecció d’estat i llistes de control d’accés (ACL) per minimitzar riscos.</p>
+        <p>S’integra la solució amb IDS/IPS per detecció d’intrusions i s’estableixen mecanismes de log i auditoria.</p>
+        <p>Es documenten procediments d’actualització, backout i proves de validació per operacions contínues.</p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="nombrar_proyectos.html">← Tornar al llistat</a>
+        <a class="btn" href="../index/index.html">Inici</a>
+      </div>
+      <span class="badge">Ciberseguretat</span>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Alex. Tots els drets reservats.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const panel = document.querySelector('.panel');
+      panel.style.opacity = 0;
+      panel.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        panel.style.transition = 'all 600ms ease';
+        panel.style.opacity = 1;
+        panel.style.transform = 'translateY(0)';
+      }, 80);
+    });
+  </script>
+</body>
+</html>
