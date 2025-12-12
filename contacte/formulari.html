@@ -55,10 +55,36 @@
       background: #6b7cff;
       color: #fff;
     }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+    }
+    nav a:hover {
+      background: #2a2f52;
+    }
   </style>
 </head>
 <body>
-  <header><h1>Contacte</h1></header>
+  <header>
+    <h1>Contacte</h1>
+    <nav>
+      <ul>
+        <li><a href="../index/index.html">Inici</a></li>
+        <li><a href="../proyectos/nombrar_proyectos.html">Projectes</a></li>
+        <li><a href="formulari.html" aria-current="page">Contacte</a></li>
+      </ul>
+    </nav>
+  </header>
   <main>
     <form>
       <!-- Nom: només lletres -->
