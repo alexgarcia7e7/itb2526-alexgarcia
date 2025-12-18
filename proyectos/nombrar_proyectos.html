@@ -1,204 +1,212 @@
-<!DOCTYPE html>
-<html lang="ca">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Llistat de Projectes - Ciberseguretat</title>
+<!DOCTYPE html> <html lang="ca"> <head> <meta charset="UTF-8"> <title>20 Projectes de Ciberseguretat</title> </head> <body>
 
-  <style>
-    :root {
-      --surface: #1e2340;
-      --border: #2a2f52;
-      --radius: 12px;
-      --shadow: 0 4px 12px rgba(0,0,0,0.3);
-      --text: #ffffff;
-      --grad: linear-gradient(135deg, #6b7cff, #20d9ff);
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f1221;
-      color: var(--text);
-    }
-
-    .site-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #171a2e;
-      padding: 1rem 2rem;
-    }
-
-    .site-header .brand {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .site-nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    .site-nav a {
-      color: var(--text);
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: background 0.3s ease;
-    }
-
-    .site-nav a:hover {
-      background: var(--border);
-    }
-
-    .layout {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-
-    .panel {
-      background: #171a2e;
-      border-radius: var(--radius);
-      padding: 1.5rem;
-    }
-
-    .panel-header {
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 1rem;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, background 0.3s ease;
-      background-image: var(--grad);
-      background-size: 200% 200%;
-      background-position: left top;
-      color: var(--text);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card:hover {
-      transform: scale(1.02);
-      background-position: right bottom;
-    }
-
-    .card-header {
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 0.5rem;
-    }
-
-    .card-footer {
-      margin-top: 0.5rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.4rem 0.8rem;
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      transition: background 0.2s ease;
-    }
-
-    .btn:hover {
-      background: rgba(255, 255, 255, 0.3);
-    }
-
-    /* Descripción oculta que aparece al hacer hover */
-    .hover-desc {
-      position: absolute;
-      bottom: -100%;
-      left: 0;
-      width: 100%;
-      background: rgba(0,0,0,0.8);
-      color: #fff;
-      padding: 1rem;
-      font-size: 0.9rem;
-      transition: bottom 0.4s ease;
-    }
-
-    .card:hover .hover-desc {
-      bottom: 0;
-    }
-
-    .site-footer {
-      text-align: center;
-      padding: 1rem;
-      background: #171a2e;
-      color: var(--text);
-    }
-
-    .social {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 0.5rem 0 0;
-      padding: 0;
-    }
-
-    .social a {
-      color: var(--text);
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body>
-
-  <header class="site-header">
-    <a class="brand" href="../index/index.html">A</a>
-    <nav class="site-nav">
-      <ul>
-        <li><a href="../index/index.html">Inici</a></li>
-        <li><a href="nombrar_proyectos.html" aria-current="page">Projectes</a></li>
-        <li><a href="../contacte/formulari.html">Contacte</a></li>
-      </ul>
-    </nav>
+<section style="background:#171a2e; border-radius:12px; padding:1.5rem;">
+  <header style="border-bottom:1px solid #2a2f52; margin-bottom:1rem;">
+    <h2 style="color:#fff;">20 Projectes de Ciberseguretat</h2>
   </header>
 
-  <main class="layout">
-    <section class="panel panel-right" aria-labelledby="listado-title">
-      <header class="panel-header">
-        <h2 id="listado-title">20 Projectes de Ciberseguretat</h2>
-      </header>
+  <!-- Proyecto 1 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Firewall Avançat</h3></header>
+    <p>Configuració d’un firewall amb regles dinàmiques.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Filtratge de paquets i detecció d’intrusions.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="../projectes/firewall.html" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
 
-      <!-- Aquí seguirían los 20 proyectos con sus tarjetas -->
-      <!-- Ejemplo de tarjeta -->
-      <article class="card">
-        <header class="card-header"><h3>Firewall Avançat</h3></header>
-        <p>Configuració d’un firewall amb regles dinàmiques.</p>
-        <div class="hover-desc">Projecte sobre filtratge de paquets i detecció d’intrusions.</div>
-        <footer class="card-footer">
-          <a class="btn" href="proyecto1.html">Veure detall</a>
-        </footer>
-      </article>
+  <!-- Proyecto 2 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Auditoria de Xarxa</h3></header>
+    <p>Anàlisi de vulnerabilitats en una infraestructura corporativa.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Escaneig amb Nmap i informes detallats.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="../projectes/auditoria.html" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
 
-      <!-- Repite estructura para los demás proyectos -->
-    </section>
-  </main>
+  <!-- Proyecto 3 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Seguretat en Servidors Web</h3></header>
+    <p>Protecció contra XSS i SQL Injection.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Capçaleres de seguretat i monitoratge.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
 
-  <footer class="site-footer">
-    <p>&copy; 2025 Alex. Tots els drets reservats.</p>
-    <ul class="social">
-      <li><a href="https://linkedin.com/in/tu-usuari" target="_blank" rel="noopener">LinkedIn</a></li>
-      <li><a href="https://github.com/tu-usuari" target="_blank" rel="noopener">GitHub</a></li>
-      <li><a href="mailto:tu-email@example.com">Email</a></li>
-    </ul>
+  <!-- Proyecto 4 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Gestió de Logs Centralitzada</h3></header>
+    <p>Recollida i anàlisi de registres.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Integració amb SIEM per correlació d’esdeveniments.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+
+  <!-- Proyecto 5 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>VPN Segura</h3></header>
+    <p>Implementació d’una xarxa privada virtual.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Xifratge fort i autenticació multifactor.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+
+  <!-- Proyecto 6 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Protecció de Correu Electrònic</h3></header>
+    <p>Filtratge de phishing i malware.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">SPF, DKIM i DMARC configurats.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+
+  <!-- Proyecto 7 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Hardening de Sistemes</h3></header>
+    <p>Reducció de superfícies d’atac.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Desactivació de serveis i aplicació de parches.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+
+  <!-- Proyecto 8 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Monitoratge de Xarxa</h3></header>
+    <p>Supervisió de tràfic i anomalies.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Alertes amb SNMP i NetFlow.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  <!-- Proyecto 9 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Autenticació Multifactor</h3></header>
+    <p>Protecció d’aplicacions crítiques.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Tokens TOTP, biometria i SMS segurs.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+
+  <!-- Proyecto 10 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Backup i Recuperació</h3></header>
+    <p>Estratègia de còpies de seguretat.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Proves de restauració i plans de contingència.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+
+  <!-- Proyecto 11 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Seguretat en IoT</h3></header>
+    <p>Protecció de dispositius connectats.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Protocols segurs i segmentació de xarxa.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+
+  <!-- Proyecto 12 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Test de Penetració</h3></header>
+    <p>Simulació d’atacs per detectar vulnerabilitats.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Metodologia OWASP i informes detallats.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+
+  <!-- Proyecto 13 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Seguretat en Bases de Dades</h3></header>
+    <p>Protecció de dades sensibles.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Xifratge, permisos i auditories.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+
+  <!-- Proyecto 14 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Gestió d’Identitats</h3></header>
+    <p>Control d’accés centralitzat.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Single Sign-On i provisionament automàtic.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+
+  <!-- Proyecto 15 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Seguretat en Aplicacions Mòbils</h3></header>
+    <p>Protecció contra malware i apps fraudulentes.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Revisió de permisos i sandboxing.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+
+  <!-- Proyecto 16 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Forense Digital</h3></header>
+    <p>Investigació d’incidents de seguretat.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Recollida i preservació de proves digitals.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+
+  <!-- Proyecto 17 -->
+<article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+  <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;">
+    <h3>Seguretat en Cloud</h3>
+  </header>
+  <p>Protecció de serveis al núvol amb bones pràctiques de configuració.</p>
+  <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">
+    Configuracions segures en AWS/Azure, gestió d’IAM, xifratge de dades, polítiques de seguretat i monitoratge continu.
+  </div>
+  <footer style="margin-top:0.5rem;">
+    <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">
+      Veure detall
+    </a>
   </footer>
+</article>
 
-</body>
-</html>
+
+      <!-- Proyecto 18 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Detecció de Malware</h3></header>
+    <p>Identificació de software maliciós.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Sandboxing i signatures heurístiques.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+
+  <!-- Proyecto 19 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Seguretat en APIs</h3></header>
+    <p>Protecció de serveis REST i GraphQL.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Autenticació, rate limiting i validació d’esquemes.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+
+  <!-- Proyecto 20 -->
+  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
+    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Gestió d’Incidents</h3></header>
+    <p>Resposta i comunicació d’incidents.</p>
+    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Playbooks, escalat i post-mortem.</div>
+    <footer style="margin-top:0.5rem;">
+      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
+    </footer>
+  </article>
+</section>
