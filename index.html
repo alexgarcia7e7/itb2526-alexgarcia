@@ -15,6 +15,7 @@
             --border-tech: #1a2633;
             --text-dim: #7a8c99;
             --glow: 0 0 10px rgba(0, 255, 157, 0.3);
+            --emerald: #00ff9d; /* Añadida para que funcione el nav */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -30,7 +31,7 @@
             padding: 15px;
         }
 
-                /* NAVBAR */
+        /* NAVBAR */
         .site-header {
             background: rgba(10, 17, 24, 0.95);
             padding: 15px 40px;
@@ -52,7 +53,8 @@
             box-shadow: 0 0 40px rgba(0,0,0,0.8);
         }
 
-        header {
+        /* Ajuste para el header interno del frame */
+        .main-frame header {
             padding: 30px;
             border-bottom: 1px solid var(--border-tech);
             display: flex;
@@ -68,7 +70,7 @@
             text-shadow: var(--glow);
         }
 
-        nav { display: flex; background: #080d14; border-bottom: 1px solid var(--border-tech); }
+        nav.internal-nav { display: flex; background: #080d14; border-bottom: 1px solid var(--border-tech); }
         .nav-link {
             padding: 12px 25px;
             color: var(--text-dim);
@@ -106,7 +108,6 @@
             background: var(--border-tech);
         }
 
-        /* ESTILOS DE PROYECTOS INTERACTIVOS */
         .project-container {
             margin-bottom: 15px;
             border: 1px solid var(--border-tech);
@@ -176,7 +177,6 @@
             font-size: 0.7rem;
         }
 
-        /* SIDEBAR WIDGETS */
         .widget { margin-bottom: 40px; }
         .widget-title { font-size: 11px; color: var(--text-dim); margin-bottom: 15px; text-transform: uppercase; }
         .stat-row { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 8px; }
@@ -191,83 +191,37 @@
             border-top: 1px solid var(--border-tech);
         }
 
+        /* RESPONSIVE DESIGN */
         @media (max-width: 900px) {
             .grid-layout { grid-template-columns: 1fr; }
         }
 
-        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .site-header { padding: 15px 20px; flex-direction: column; gap: 10px; }
+            .site-nav ul { gap: 10px; }
+        }
 
-/* Para tablets y móviles grandes */
-@media (max-width: 768px) {
-    .site-header {
-        padding: 15px 20px;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .search-area {
-        margin: 20px 10px;
-        padding: 15px;
-    }
-
-    .search-box {
-        flex-direction: column; /* El buscador y el filtro se ponen uno sobre otro */
-    }
-
-    .projects-list {
-        padding: 0 10px;
-    }
-}
-
-/* Para móviles pequeños */
-@media (max-width: 480px) {
-    .card-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .card-id {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .card-title {
-        font-size: 0.85rem; /* Texto un poco más pequeño para que no desborde */
-    }
-
-    .site-nav ul {
-        gap: 10px;
-    }
-
-    .site-nav a {
-        font-size: 0.7rem;
-    }
-
-    /* Ajuste del botón para que sea más fácil de pulsar en táctil */
-    .btn-view {
-        width: 100%;
-        text-align: center;
-        padding: 12px;
-    }
-}
+        @media (max-width: 480px) {
+            .logo h1 { font-size: 1.5rem; }
+            .nav-link { padding: 10px 15px; font-size: 0.65rem; }
+        }
     </style>
 </head>
 
-<header class="site-header">
+<body>
+
+    <header class="site-header">
         <nav class="site-nav">
             <ul>
-                <li><a href="../itb2526-alexgarcia/proyectos/nombrar_proyectos.html">Lista proyectos</a></li>
-                <li><a href="../contacte/formulari.html">Contacto</a></li>
-                <li><a href="../proyectos/proyecto1.html">Proyecto 1</a></li>
-                <li><a href="../proyectos/proyecto2.html">Proyecto 2</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="proyectos/nombrar_proyectos.html">Lista proyectos</a></li>
+                <li><a href="contacte/formulari.html">Contacto</a></li>
+                <li><a href="proyectos/proyecto1.html">Proyecto 1</a></li>
+                <li><a href="proyectos/proyecto2.html">Proyecto 2</a></li>
             </ul>
         </nav>
         <div style="color: var(--emerald); font-size: 0.7rem;">ALEX_OS v1.0</div>
-
-</header>
-
-<body>
+    </header>
 
     <div class="main-frame">
         <header>
@@ -277,10 +231,10 @@
             <div id="clock" style="font-size: 0.8rem; color: var(--terminal-green);">00:00:00 UTC</div>
         </header>
 
-        <nav>
-            <a href="#" class="nav-link active">Main_Node</a>
-            <a href="#" class="nav-link">Network_Repo</a>
-            <a href="#" class="nav-link">Contact_Encrypted</a>
+        <nav class="internal-nav">
+            <a href="index.html" class="nav-link active">Main_Node</a>
+            <a href="proyectos/nombrar_proyectos.html" class="nav-link">Network_Repo</a>
+            <a href="contacte/formulari.html" class="nav-link">Contact_Encrypted</a>
         </nav>
 
         <div class="grid-layout">
@@ -305,7 +259,7 @@
                     <div id="vpc-details" class="project-details">
                         <div class="details-inner">
                             <p><strong>Configuración:</strong> Implementación de VLANs segmentadas para separar tráfico de gestión, datos y servicios públicos.</p>
-                            <p><strong>Seguridad:</strong> Reglas de firewall pfSense y servicios redundantes para garantizar la disponibilidad del 99.9%.</p>
+                            <p><strong>Seguridad:</strong> Reglas de firewall pfSense y servicios redundantes.</p>
                             <a href="proyectos/proyecto1.html" class="view-details-link">EXPANDIR LOGS</a>
                         </div>
                     </div>
@@ -322,8 +276,8 @@
                     </div>
                     <div id="ansible-details" class="project-details">
                         <div class="details-inner">
-                            <p><strong>Automatización:</strong> Creación de playbooks YAML para el despliegue masivo de servidores web y bases de datos.</p>
-                            <p><strong>Monitorización:</strong> Integración de agentes Prometheus para telemetría de rendimiento en tiempo real.</p>
+                            <p><strong>Automatización:</strong> Creación de playbooks YAML para el despliegue masivo de servidores.</p>
+                            <p><strong>Monitorización:</strong> Integración de agentes Prometheus.</p>
                             <a href="proyectos/proyecto2.html" class="view-details-link">EXPANDIR LOGS</a>
                         </div>
                     </div>
@@ -357,7 +311,6 @@
     </div>
 
     <script>
-        // Reloj UTC
         function updateClock() {
             const now = new Date();
             document.getElementById('clock').textContent = now.toISOString().split('T')[1].split('.')[0] + " UTC";
@@ -365,12 +318,9 @@
         setInterval(updateClock, 1000);
         updateClock();
 
-        // Lógica de los desplegables
         function toggleDetails(id) {
             const element = document.getElementById(id);
             const btn = document.getElementById('btn-' + id);
-
-            // Cierra otros para mantener el orden
             document.querySelectorAll('.project-details').forEach(el => {
                 if (el.id !== id) {
                     el.classList.remove('active');
@@ -378,7 +328,6 @@
                     if(otherBtn) otherBtn.textContent = '+';
                 }
             });
-
             element.classList.toggle('active');
             btn.textContent = element.classList.contains('active') ? '-' : '+';
         }
