@@ -3,219 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex | Terminal Archive v3.5</title>
+    <title>Alex | Repositorio Central [20_PROJECTS]</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-
     <style>
         :root {
-            --bg: #030508;
-            --primary: #00ff9d;
-            --primary-dim: rgba(0, 255, 157, 0.1);
-            --border: #111d2b;
-            --text-gray: #627285;
-            --tag-bg: rgba(0, 255, 157, 0.05);
+            --bg: #05070a;
+            --emerald: #00ff9d;
+            --emerald-dim: rgba(0, 255, 157, 0.1);
+            --border: #1a2633;
+            --text-dim: #7a8c99;
+            --tag-yellow: #fbbf24;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         body {
             background-color: var(--bg);
-            color: #e2e8f0;
+            color: #e0e6ed;
             font-family: 'JetBrains Mono', monospace;
-            padding: 40px 20px;
+            background-image: radial-gradient(var(--emerald-dim) 1px, transparent 1px);
+            background-size: 30px 30px;
+            padding-bottom: 100px;
         }
 
-        .container { max-width: 1300px; margin: 0 auto; }
+        /* NAVBAR */
+        .site-header {
+            background: rgba(10, 17, 24, 0.95);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--emerald);
+            position: sticky; top: 0; z-index: 100;
+        }
+        .site-nav ul { display: flex; list-style: none; gap: 20px; }
+        .site-nav a { color: var(--text-dim); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; }
+        .site-nav a:hover { color: var(--emerald); }
 
         /* BUSCADOR */
-        .search-container {
-            margin-bottom: 40px;
-            background: #080c12;
+        .search-area {
+            max-width: 900px; margin: 40px auto;
+            background: #0a1118; border: 1px solid var(--border);
             padding: 20px;
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
+        }
+        .grep-label { color: var(--emerald); font-size: 0.7rem; margin-bottom: 10px; display: block; }
+        .search-box { display: flex; gap: 10px; }
+        input, select {
+            background: #05070a; border: 1px solid var(--border);
+            color: var(--emerald); padding: 10px; font-family: inherit; flex: 1; outline: none;
+        }
+        input:focus { border-color: var(--emerald); }
+
+        /* GRID DE PROYECTOS */
+        .projects-list {
+            max-width: 900px; margin: 0 auto;
+            display: flex; flex-direction: column; gap: 10px;
         }
 
-        .search-label { color: var(--primary); margin-right: 15px; font-weight: bold; }
-
-        #tagSearch {
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid var(--border);
-            color: var(--primary);
-            font-family: inherit;
-            font-size: 1rem;
-            width: 100%;
-            outline: none;
-            padding: 5px;
+        .card {
+            background: #0a1118; border: 1px solid var(--border);
+            padding: 20px; display: flex; justify-content: space-between; align-items: center;
+            position: relative; overflow: hidden; transition: 0.2s;
         }
+        .card:hover { border-color: var(--emerald); background: #0d1721; }
 
-        /* GRID */
-        .grid-archive {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 15px;
-        }
+        .card-info { flex: 1; }
+        .card-id { color: var(--emerald); font-weight: bold; font-size: 0.8rem; margin-right: 10px; }
+        .card-title { font-size: 1rem; color: #fff; text-transform: uppercase; display: inline-block; }
 
-        /* TARJETA */
-        .project-node {
-            background: #080c12;
-            border: 1px solid var(--border);
-            height: 140px;
-            position: relative;
-            transition: 0.3s;
-            overflow: hidden;
-        }
-
-        .project-node.hidden { display: none; }
-
-        /* Animación de parpadeo al aparecer */
-        .project-node.flicker {
-            animation: terminal-flicker 0.3s ease-in-out;
-        }
-
-        @keyframes terminal-flicker {
-            0% { opacity: 0; }
-            50% { opacity: 0.8; }
-            100% { opacity: 1; }
-        }
-
-        .project-node:hover {
-            border-color: var(--primary);
-            box-shadow: 0 0 15px var(--primary-dim);
-        }
-
-        .node-info { padding: 20px; }
-        .node-id { color: var(--text-gray); font-size: 0.6rem; display: block; margin-bottom: 5px; }
-
-        /* Títulos y Tags (Boceto Layout) */
-        .title-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
-        .node-title { font-size: 0.85rem; font-weight: 700; color: #fff; text-transform: uppercase; }
-
+        .tags-row { margin-top: 8px; display: flex; gap: 8px; }
         .tag {
-            font-size: 0.6rem;
-            padding: 1px 6px;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            border-radius: 3px;
-            text-transform: lowercase;
-            opacity: 0.8;
+            font-size: 0.65rem; padding: 2px 8px; border-radius: 4px;
+            border: 1px solid var(--emerald); color: var(--emerald);
+        }
+        .tag.yellow { border-color: var(--tag-yellow); color: var(--tag-yellow); }
+
+        /* HOVER DESCRIPTION */
+        .hover-desc {
+            position: absolute; left: 0; top: 100%; width: 100%; height: 100%;
+            background: rgba(0, 255, 157, 0.95); color: #000;
+            padding: 20px; transition: top 0.3s ease;
+            display: flex; align-items: center; font-weight: bold; font-size: 0.85rem;
+        }
+        .card:hover .hover-desc { top: 0; }
+
+        .btn-view {
+            border: 1px solid var(--emerald); color: var(--emerald);
+            background: transparent; padding: 8px 15px; font-size: 0.7rem; cursor: pointer;
         }
 
-        /* Hover Desc */
-        .node-desc {
-            position: absolute;
-            bottom: -100%;
-            left: 0;
-            width: 100%;
-            height: 60%;
-            background: #0a161d;
-            border-top: 1px solid var(--primary);
-            padding: 15px;
-            transition: bottom 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-
-        .node-desc p { font-size: 0.75rem; color: var(--primary); line-height: 1.3; }
-        .project-node:hover .node-desc { bottom: 0; }
-
-        /* Botón Volver */
         .footer-nav { text-align: center; margin-top: 50px; }
         .btn-home {
-            color: var(--primary);
-            border: 1px solid var(--primary);
-            padding: 12px 40px;
-            text-decoration: none;
-            font-size: 0.8rem;
-            transition: 0.3s;
-            text-transform: uppercase;
+            color: var(--emerald); border: 1px solid var(--emerald);
+            padding: 12px 30px; text-decoration: none; font-size: 0.8rem;
         }
-        .btn-home:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px var(--primary); }
+
+        .hidden { display: none; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header style="margin-bottom: 20px;">
-            <p style="color: var(--text-gray); font-size: 0.65rem;">SISTEMA_DE_ARCHIVOS_ALEX // CARGANDO_20_NODOS...</p>
-            <h1 style="color: var(--primary); text-shadow: 0 0 10px var(--primary-dim);">CENTRAL_REPO</h1>
-        </header>
+    <header class="site-header">
+        <nav class="site-nav">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Sobre mí</a></li>
+                <li><a href="#">Proyectos</a></li>
+            </ul>
+        </nav>
+        <div style="color: var(--emerald); font-size: 0.7rem;">ALEX_OS v1.0</div>
+    </header>
 
-        <div class="search-container">
-            <span class="search-label">[USER@ROOT ~]$ grep -i</span>
-            <input type="text" id="tagSearch" placeholder="Busca por etiqueta (ej: cyber, red, linux)..." onkeyup="filterProjects()">
-        </div>
-
-        <div class="grid-archive" id="nodeList">
-            </div>
-
-        <div class="footer-nav">
-            <a href="index.html" class="btn-home">_ VOLVER_AL_INICIO</a>
+    <div class="search-area">
+        <span class="grep-label">[root@terminal]# grep --filter --all-projects</span>
+        <div class="search-box">
+            <input type="text" id="q" placeholder="Buscar por nombre..." onkeyup="filter()">
+            <select id="f" onchange="filter()">
+                <option value="all">Todas las categorías</option>
+                <option value="cyber">Ciberseguridad</option>
+                <option value="infra">Infraestructura</option>
+                <option value="automation">Automatización</option>
+            </select>
         </div>
     </div>
 
+    <div class="projects-list" id="list">
+        <div class="card" data-cat="infra">
+            <div class="card-info">
+                <span class="card-id">[PX-01]</span><h3 class="card-title">VPC Lab Architecture</h3>
+                <div class="tags-row"><span class="tag">infra</span><span class="tag yellow">virtual</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Diseño de red segmentada con DMZ y VLANs corporativas.</div>
+        </div>
+        <div class="card" data-cat="automation">
+            <div class="card-info">
+                <span class="card-id">[AN-04]</span><h3 class="card-title">Ansible Auto-Provision</h3>
+                <div class="tags-row"><span class="tag">automation</span><span class="tag yellow">scripts</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Automatización de despliegue de nodos Debian mediante Playbooks.</div>
+        </div>
+        <div class="card" data-cat="cyber">
+            <div class="card-info">
+                <span class="card-id">[SEC-01]</span><h3 class="card-title">Incident Reporting</h3>
+                <div class="tags-row"><span class="tag">cyber</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Sistema de registro forense para respuesta ante incidentes.</div>
+        </div>
+        <div class="card" data-cat="infra">
+            <div class="card-info">
+                <span class="card-id">[VX-05]</span><h3 class="card-title">Proxmox HA Cluster</h3>
+                <div class="tags-row"><span class="tag">infra</span><span class="tag yellow">ha</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Configuración de alta disponibilidad para servidores críticos.</div>
+        </div>
+        <div class="card" data-cat="cyber">
+            <div class="card-info">
+                <span class="card-id">[SEC-02]</span><h3 class="card-title">T-Pot Honeypot</h3>
+                <div class="tags-row"><span class="tag">cyber</span><span class="tag yellow">intel</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Despliegue de señuelos para recolección de amenazas globales.</div>
+        </div>
+        <div class="card" data-cat="infra">
+            <div class="card-info">
+                <span class="card-id">[RT-09]</span><h3 class="card-title">OSPF Dynamic Mesh</h3>
+                <div class="tags-row"><span class="tag">infra</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Implementación de enrutamiento dinámico en redes multi-área.</div>
+        </div>
+        <div class="card" data-cat="automation">
+            <div class="card-info">
+                <span class="card-id">[DK-12]</span><h3 class="card-title">Docker Swarm Hub</h3>
+                <div class="tags-row"><span class="tag">automation</span><span class="tag yellow">devops</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Orquestación de microservicios escalables.</div>
+        </div>
+        <div class="card" data-cat="cyber">
+            <div class="card-info">
+                <span class="card-id">[SEC-03]</span><h3 class="card-title">PFsense Firewall Core</h3>
+                <div class="tags-row"><span class="tag">cyber</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Gestión perimetral avanzada y VPN de túnel seguro.</div>
+        </div>
+        <div class="card" data-cat="infra">
+            <div class="card-info">
+                <span class="card-id">[MN-01]</span><h3 class="card-title">Zabbix Monitoring</h3>
+                <div class="tags-row"><span class="tag">infra</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Supervisión en tiempo real de toda la infraestructura.</div>
+        </div>
+        <div class="card" data-cat="automation">
+            <div class="card-info">
+                <span class="card-id">[GIT-02]</span><h3 class="card-title">CI/CD Pipeline</h3>
+                <div class="tags-row"><span class="tag">automation</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Flujo de integración continua mediante GitHub Actions.</div>
+        </div>
+        <div class="card" data-cat="infra">
+            <div class="card-info">
+                <span class="card-id">[DB-05]</span><h3 class="card-title">MySQL HA Cluster</h3>
+                <div class="tags-row"><span class="tag">infra</span><span class="tag yellow">database</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Base de datos redundante con replicación síncrona.</div>
+        </div>
+        <div class="card" data-cat="cyber">
+            <div class="card-info">
+                <span class="card-id">[SEC-04]</span><h3 class="card-title">Kernell Hardening</h3>
+                <div class="tags-row"><span class="tag">cyber</span><span class="tag yellow">linux</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Aseguramiento de sistemas operativos bajo normas CIS.</div>
+        </div>
+        <div class="card" data-cat="infra">
+            <div class="card-info">
+                <span class="card-id">[LD-01]</span><h3 class="card-title">OpenLDAP Auth Hub</h3>
+                <div class="tags-row"><span class="tag">infra</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Centralización de identidades y acceso de usuarios.</div>
+        </div>
+        <div class="card" data-cat="automation">
+            <div class="card-info">
+                <span class="card-id">[PY-08]</span><h3 class="card-title">Python Sys Auditor</h3>
+                <div class="tags-row"><span class="tag">automation</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Scripting para la detección de configuraciones erróneas.</div>
+        </div>
+        <div class="card" data-cat="cyber">
+            <div class="card-info">
+                <span class="card-id">[SEC-05]</span><h3 class="card-title">OpenVAS Scanner</h3>
+                <div class="tags-row"><span class="tag">cyber</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Auditoría recurrente de vulnerabilidades en red local.</div>
+        </div>
+        <div class="card" data-cat="infra">
+            <div class="card-info">
+                <span class="card-id">[NET-03]</span><h3 class="card-title">RADIUS WiFi Ent.</h3>
+                <div class="tags-row"><span class="tag">infra</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Seguridad WPA3 con autenticación basada en certificados.</div>
+        </div>
+        <div class="card" data-cat="automation">
+            <div class="card-info">
+                <span class="card-id">[TF-01]</span><h3 class="card-title">Terraform VPC Bot</h3>
+                <div class="tags-row"><span class="tag">automation</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Infraestructura como código para despliegues rápidos.</div>
+        </div>
+        <div class="card" data-cat="cyber">
+            <div class="card-info">
+                <span class="card-id">[SEC-06]</span><h3 class="card-title">ELK Stack SIEM</h3>
+                <div class="tags-row"><span class="tag">cyber</span><span class="tag yellow">logs</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Análisis de logs y visualización de eventos de seguridad.</div>
+        </div>
+        <div class="card" data-cat="infra">
+            <div class="card-info">
+                <span class="card-id">[ST-04]</span><h3 class="card-title">SAN Storage iSCSI</h3>
+                <div class="tags-row"><span class="tag">infra</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">Gestión de volúmenes de almacenamiento compartido.</div>
+        </div>
+        <div class="card" data-cat="cyber">
+            <div class="card-info">
+                <span class="card-id">[SEC-07]</span><h3 class="card-title">Wireguard Node</h3>
+                <div class="tags-row"><span class="tag">cyber</span></div>
+            </div>
+            <button class="btn-view">DETALLES</button>
+            <div class="hover-desc">VPN de alto rendimiento para accesos administrativos remotos.</div>
+        </div>
+    </div>
+
+    <div class="footer-nav">
+        <a href="../index.html" class="btn-home">_ VOLVER_AL_INICIO</a>
+    </div>
+
     <script>
-        const proyectos = [
-            {id: "01", t: "VPC Lab Architecture", tags: ["cyber", "maquina virtual", "red"], d: "Laboratorio de routing con topología multi-router y DNS simulado."},
-            {id: "02", t: "Portfolio & CI/CD", tags: ["web", "git", "automatizacion"], d: "Sitio estático con flujo de trabajo automatizado y despliegue continuo."},
-            {id: "03", t: "Incident Reporting System", tags: ["cyber", "logs", "terminal"], d: "Herramienta basada en terminal para registro y exportación de incidentes."},
-            {id: "04", t: "Proxmox Cluster HA", tags: ["virtualizacion", "servidor", "ha"], d: "Alta disponibilidad y migración en vivo de nodos de virtualización."},
-            {id: "05", t: "Ansible Automation", tags: ["automation", "linux", "scripts"], d: "Despliegue masivo de servidores web con monitorización integrada."},
-            {id: "06", t: "OSPF Dynamic Routing", tags: ["red", "cisco", "infra"], d: "Configuración de protocolos dinámicos para redes escalables."},
-            {id: "07", t: "Docker Swarm Hub", tags: ["contenedores", "devops", "ha"], d: "Orquestación de microservicios con balanceo de carga."},
-            {id: "08", t: "pfSense Core Firewall", tags: ["cyber", "red", "security"], d: "Gestión de reglas de filtrado y VPN Site-to-Site segura."},
-            {id: "09", t: "ELK Stack SIEM", tags: ["logs", "cyber", "alertas"], d: "Centralización y análisis de registros de seguridad en tiempo real."},
-            {id: "10", t: "Wireguard Tunneling", tags: ["red", "vpn", "privacy"], d: "Implementación de accesos remotos cifrados de baja latencia."},
-            {id: "11", t: "Linux Kernell Hardening", tags: ["linux", "cyber", "security"], d: "Aseguramiento de sistemas operativos bajo normas CIS."},
-            {id: "12", t: "Zabbix Monitoring", tags: ["infra", "monitor", "alertas"], d: "Supervisión proactiva de hardware y servicios críticos."},
-            {id: "13", t: "OpenLDAP Auth Hub", tags: ["linux", "auth", "infra"], d: "Gestión centralizada de identidades para usuarios de red."},
-            {id: "14", t: "Nginx Reverse Proxy", tags: ["web", "red", "ssl"], d: "Terminación SSL y optimización de tráfico para aplicaciones web."},
-            {id: "15", t: "NAS Storage RAID", tags: ["storage", "backup", "linux"], d: "Gestión de volúmenes de almacenamiento compartido iSCSI."},
-            {id: "16", t: "GitHub Actions CI", tags: ["git", "automation", "devops"], d: "Flujos de integración para validación automática de código."},
-            {id: "17", t: "OpenVAS Security Audit", tags: ["cyber", "pentest", "scans"], d: "Escaneo periódico de vulnerabilidades en infraestructura."},
-            {id: "18", t: "RADIUS WiFi Enterprise", tags: ["red", "wifi", "auth"], d: "Seguridad inalámbrica corporativa con autenticación 802.1X."},
-            {id: "19", t: "MySQL High Availability", tags: ["db", "ha", "servidor"], d: "Clústeres de base de datos con replicación maestro-esclavo."},
-            {id: "20", t: "Forensic Analyzer", tags: ["cyber", "logs", "linux"], d: "Herramienta de análisis post-mortem de eventos del sistema."}
-        ];
-
-        const container = document.getElementById('nodeList');
-
-        function render() {
-            container.innerHTML = proyectos.map(p => `
-                <div class="project-node" data-search="${p.tags.join(' ')} ${p.t}">
-                    <div class="node-info">
-                        <span class="node-id">REF_${p.id}</span>
-                        <div class="title-row">
-                            <div class="node-title">${p.t}</div>
-                            ${p.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                        </div>
-                    </div>
-                    <div class="node-desc"><p>${p.d}</p></div>
-                </div>
-            `).join('');
-        }
-
-        function filterProjects() {
-            const val = document.getElementById('tagSearch').value.toLowerCase();
-            const cards = document.querySelectorAll('.project-node');
+        function filter() {
+            const query = document.getElementById('q').value.toLowerCase();
+            const cat = document.getElementById('f').value;
+            const cards = document.querySelectorAll('.card');
 
             cards.forEach(card => {
-                const searchData = card.getAttribute('data-search').toLowerCase();
-                if (searchData.includes(val)) {
-                    if (card.classList.contains('hidden')) {
-                        card.classList.remove('hidden');
-                        card.classList.add('flicker'); // Efecto terminal
-                        setTimeout(() => card.classList.remove('flicker'), 300);
-                    }
+                const title = card.querySelector('.card-title').innerText.toLowerCase();
+                const category = card.getAttribute('data-cat');
+
+                const matchesQuery = title.includes(query);
+                const matchesCat = (cat === 'all' || category === cat);
+
+                if (matchesQuery && matchesCat) {
+                    card.classList.remove('hidden');
                 } else {
                     card.classList.add('hidden');
                 }
             });
         }
-
-        render();
     </script>
 </body>
 </html>
