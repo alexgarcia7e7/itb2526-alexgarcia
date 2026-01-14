@@ -1,105 +1,302 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio personal de Alex: proyectos destacados, listado y contacto." />
-  <meta name="author" content="Alex" />
-  <title>Portfolio de Alex</title>
-  <link rel="stylesheet" href="index/styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Ejemplo tipografía opcional -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-</head>
-<script src="index/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex | Infrastructure Control Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
+    <style>
+        :root {
+            --hex-bg: #05070a;
+            --terminal-green: #00ff9d;
+            --dark-green: rgba(0, 255, 157, 0.05);
+            --surface: #0a1118;
+            --border-tech: #1a2633;
+            --text-dim: #7a8c99;
+            --glow: 0 0 10px rgba(0, 255, 157, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--hex-bg);
+            background-image:
+                linear-gradient(var(--dark-green) 1px, transparent 1px),
+                linear-gradient(90deg, var(--dark-green) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: #e0e6ed;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 15px;
+        }
+
+        .main-frame {
+            max-width: 1100px;
+            margin: 20px auto;
+            border: 1px solid var(--border-tech);
+            background: var(--surface);
+            box-shadow: 0 0 40px rgba(0,0,0,0.8);
+        }
+
+        header {
+            padding: 30px;
+            border-bottom: 1px solid var(--border-tech);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .logo h1 {
+            font-family: 'Share Tech Mono', sans-serif;
+            font-size: 2.2rem;
+            color: var(--terminal-green);
+            text-shadow: var(--glow);
+        }
+
+        nav { display: flex; background: #080d14; border-bottom: 1px solid var(--border-tech); }
+        .nav-link {
+            padding: 12px 25px;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.75rem;
+            border-right: 1px solid var(--border-tech);
+            text-transform: uppercase;
+        }
+        .nav-link:hover { color: var(--terminal-green); background: var(--dark-green); }
+        .nav-link.active { color: var(--terminal-green); border-bottom: 2px solid var(--terminal-green); }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 1px;
+            background: var(--border-tech);
+        }
+
+        .content-main { background: var(--surface); padding: 40px; }
+        .sidebar { background: #080d14; padding: 30px; }
+
+        .section-title {
+            font-size: 0.8rem;
+            color: var(--terminal-green);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background: var(--border-tech);
+        }
+
+        /* ESTILOS DE PROYECTOS INTERACTIVOS */
+        .project-container {
+            margin-bottom: 15px;
+            border: 1px solid var(--border-tech);
+            transition: 0.2s;
+        }
+
+        .project-row {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .project-row:hover {
+            background: rgba(0, 255, 157, 0.02);
+            border-color: var(--terminal-green);
+        }
+
+        .project-code {
+            color: var(--terminal-green);
+            font-weight: bold;
+            margin-right: 20px;
+            min-width: 60px;
+        }
+
+        .project-content h3 { font-size: 1.1rem; }
+        .project-content p { font-size: 0.85rem; color: var(--text-dim); }
+
+        .toggle-btn {
+            background: transparent;
+            border: 1px solid var(--terminal-green);
+            color: var(--terminal-green);
+            width: 30px;
+            height: 30px;
+            font-family: inherit;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .project-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .details-inner {
+            padding: 20px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border-tech);
+        }
+
+        .project-details.active {
+            max-height: 400px;
+        }
+
+        .view-details-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--terminal-green);
+            text-decoration: none;
+            border: 1px solid var(--terminal-green);
+            padding: 5px 15px;
+            font-size: 0.7rem;
+        }
+
+        /* SIDEBAR WIDGETS */
+        .widget { margin-bottom: 40px; }
+        .widget-title { font-size: 11px; color: var(--text-dim); margin-bottom: 15px; text-transform: uppercase; }
+        .stat-row { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 8px; }
+        .progress-bar { height: 4px; background: #1a2633; width: 100%; margin-top: 5px; }
+        .progress-fill { height: 100%; background: var(--terminal-green); box-shadow: var(--glow); }
+
+        footer {
+            padding: 15px;
+            text-align: center;
+            font-size: 10px;
+            color: var(--text-dim);
+            border-top: 1px solid var(--border-tech);
+        }
+
+        @media (max-width: 900px) {
+            .grid-layout { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
 <body>
 
-  <!-- Header reutilizable -->
-  <header class="site-header">
-    <a class="brand" href="../index/index.html" aria-label="Ir a inicio">A</a>
-    <nav class="site-nav" aria-label="Navegación principal">
-      <ul>
-        <li><a href="../index/index.html">Inicio</a></li>
-        <li><a href="proyectos/nombrar_proyectos.html" aria-current="page">Proyectos</a></li>
-        <li><a href="contacte/formulari.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <!-- Main con dos secciones en paralelo -->
-  <main class="layout">
-    <!-- Sección izquierda: presentación + aside -->
-    <section class="panel panel-left" aria-labelledby="presentacion-title">
-      <header class="panel-header">
-        <h2 id="presentacion-title">Sobre mí</h2>
-      </header>
-
-      <article class="about">
-        <p>Soy Alex, admin de sistemas y diseñador de redes. Me gusta crear laboratorios, automatizar tareas y documentar con claridad.</p>
-        <p>Este portfolio recoge mis proyectos y aprendizajes clave.</p>
-      </article>
-
-      <aside class="panel-aside" aria-labelledby="aside-title">
-        <h3 id="aside-title">Enlaces rápidos</h3>
-        <ul>
-          <li><a href="proyectos/nombrar_proyectos.html">Ver todos los proyectos</a></li>
-          <li><a href="contacte/formulari.html">Contactar</a></li>
-          <li><a href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a></li>
-        </ul>
-      </aside>
-
-      <footer class="panel-footer">
-        <p>Disponible para colaboraciones y retos técnicos.</p>
-      </footer>
-    </section>
-
-    <!-- Sección derecha: proyectos destacados -->
-    <section class="panel panel-right" aria-labelledby="destacados-title">
-      <header class="panel-header">
-        <h2 id="destacados-title">Proyectos destacados</h2>
-      </header>
-
-      <article class="card">
-        <header class="card-header">
-          <h3>Proyecto 1: Laboratorio de routing</h3>
+    <div class="main-frame">
+        <header>
+            <div class="logo">
+                <h1>ALEX.LABS<span>_</span></h1>
+            </div>
+            <div id="clock" style="font-size: 0.8rem; color: var(--terminal-green);">00:00:00 UTC</div>
         </header>
-        <p>Topología multi-router con DNS simulado, rutas estáticas y verificación segmentada.</p>
-        <p>Tecnologías: Cisco/FRR, diagramas, documentación reproducible.</p>
-        <footer class="card-footer">
-          <a class="btn" href="proyectos/proyecto1.html" aria-label="Ver detalle del Proyecto 1">Ver detalle</a>
+
+        <nav>
+            <a href="#" class="nav-link active">Main_Node</a>
+            <a href="#" class="nav-link">Network_Repo</a>
+            <a href="#" class="nav-link">Contact_Encrypted</a>
+        </nav>
+
+        <div class="grid-layout">
+            <main class="content-main">
+                <div class="section-title">01 // SISTEMA_INFO</div>
+                <p style="margin-bottom: 40px; color: var(--text-dim);">
+                    Iniciando secuencia de presentación... Administrador enfocado en <strong>Infraestructura Crítica</strong> y automatización de sistemas Linux.
+                    Especializado en la optimización de recursos y despliegue de redes seguras.
+                </p>
+
+                <div class="section-title">02 // DESPLIEGUES_RECIENTES</div>
+
+                <div class="project-container">
+                    <div class="project-row" onclick="toggleDetails('vpc-details')">
+                        <div class="project-code">[PX-01]</div>
+                        <div class="project-content">
+                            <h3>Virtual Private Cloud Lab</h3>
+                            <p>Entorno empresarial con segmentación DMZ.</p>
+                        </div>
+                        <button class="toggle-btn" id="btn-vpc-details">+</button>
+                    </div>
+                    <div id="vpc-details" class="project-details">
+                        <div class="details-inner">
+                            <p><strong>Configuración:</strong> Implementación de VLANs segmentadas para separar tráfico de gestión, datos y servicios públicos.</p>
+                            <p><strong>Seguridad:</strong> Reglas de firewall pfSense y servicios redundantes para garantizar la disponibilidad del 99.9%.</p>
+                            <a href="proyectos/proyecto1.html" class="view-details-link">EXPANDIR LOGS</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-container">
+                    <div class="project-row" onclick="toggleDetails('ansible-details')">
+                        <div class="project-code">[AN-04]</div>
+                        <div class="project-content">
+                            <h3>Ansible Automation Core</h3>
+                            <p>Aprovisionamiento automatizado de nodos.</p>
+                        </div>
+                        <button class="toggle-btn" id="btn-ansible-details">+</button>
+                    </div>
+                    <div id="ansible-details" class="project-details">
+                        <div class="details-inner">
+                            <p><strong>Automatización:</strong> Creación de playbooks YAML para el despliegue masivo de servidores web y bases de datos.</p>
+                            <p><strong>Monitorización:</strong> Integración de agentes Prometheus para telemetría de rendimiento en tiempo real.</p>
+                            <a href="proyectos/proyecto2.html" class="view-details-link">EXPANDIR LOGS</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="sidebar">
+                <div class="widget">
+                    <div class="widget-title">Recursos del Core</div>
+                    <div class="stat-row"><span>NETWORKING</span><span>90%</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+
+                    <div class="stat-row" style="margin-top: 15px;"><span>SECURITY</span><span>75%</span></div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
+                </div>
+
+                <div class="widget">
+                    <div class="widget-title">Nodos Activos</div>
+                    <ul style="font-size: 11px; list-style: none; color: var(--text-dim);">
+                        <li><span style="color: var(--terminal-green);">●</span> Srv_Proxmox_Main</li>
+                        <li><span style="color: var(--terminal-green);">●</span> DB_Cluster_Primary</li>
+                        <li><span style="color: #ff4d4d;">●</span> Backup_Vault_Offline</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <footer>
+            ESTADO: OPERACIONAL // ENCRIPTACIÓN_ACTIVA // 2026
         </footer>
-      </article>
+    </div>
 
-      <article class="card">
-        <header class="card-header">
-          <h3>Proyecto 2: Portfolio web y CI/CD</h3>
-        </header>
-        <p>Sitio estático con HTML/CSS/JS, despliegue en GitHub Pages y flujo de trabajo con Git.</p>
-        <p>Enfoque en accesibilidad, responsive y documentación clara.</p>
-        <footer class="card-footer">
-          <a class="btn" href="proyectos/proyecto2.html" aria-label="Ver detalle del Proyecto 2">Ver detalle</a>
-        </footer>
-      </article>
+    <script>
+        // Reloj UTC
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent = now.toISOString().split('T')[1].split('.')[0] + " UTC";
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
 
-      <footer class="panel-footer">
-        <p>Los dos proyectos anteriores enlazan a su página de detalle, como pide el enunciado.</p>
-      </footer>
-    </section>
-  </main>
+        // Lógica de los desplegables
+        function toggleDetails(id) {
+            const element = document.getElementById(id);
+            const btn = document.getElementById('btn-' + id);
 
-  <!-- Footer reutilizable -->
-  <footer class="site-footer">
-    <p>&copy; 2025 Alex. Todos los derechos reservados.</p>
-    <ul class="social">
-      <li><a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a></li>
-      <li><a href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a></li>
-      <li><a href="mailto:tu-email@example.com">Email</a></li>
-    </ul>
-  </footer>
+            // Cierra otros para mantener el orden
+            document.querySelectorAll('.project-details').forEach(el => {
+                if (el.id !== id) {
+                    el.classList.remove('active');
+                    const otherBtn = document.getElementById('btn-' + el.id);
+                    if(otherBtn) otherBtn.textContent = '+';
+                }
+            });
 
-  <!-- JS: animaciones y mejoras -->
-  <script src="index/script.js" defer></script>
+            element.classList.toggle('active');
+            btn.textContent = element.classList.contains('active') ? '-' : '+';
+        }
+    </script>
 </body>
 </html>

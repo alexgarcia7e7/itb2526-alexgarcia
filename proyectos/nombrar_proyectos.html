@@ -1,212 +1,221 @@
-<!DOCTYPE html> <html lang="ca"> <head> <meta charset="UTF-8"> <title>20 Projectes de Ciberseguretat</title> </head> <body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex | Terminal Archive v3.5</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-<section style="background:#171a2e; border-radius:12px; padding:1.5rem;">
-  <header style="border-bottom:1px solid #2a2f52; margin-bottom:1rem;">
-    <h2 style="color:#fff;">20 Projectes de Ciberseguretat</h2>
-  </header>
+    <style>
+        :root {
+            --bg: #030508;
+            --primary: #00ff9d;
+            --primary-dim: rgba(0, 255, 157, 0.1);
+            --border: #111d2b;
+            --text-gray: #627285;
+            --tag-bg: rgba(0, 255, 157, 0.05);
+        }
 
-  <!-- Proyecto 1 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Firewall Avançat</h3></header>
-    <p>Configuració d’un firewall amb regles dinàmiques.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Filtratge de paquets i detecció d’intrusions.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="../projectes/firewall.html" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <!-- Proyecto 2 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Auditoria de Xarxa</h3></header>
-    <p>Anàlisi de vulnerabilitats en una infraestructura corporativa.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Escaneig amb Nmap i informes detallats.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="../projectes/auditoria.html" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        body {
+            background-color: var(--bg);
+            color: #e2e8f0;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 40px 20px;
+        }
 
-  <!-- Proyecto 3 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Seguretat en Servidors Web</h3></header>
-    <p>Protecció contra XSS i SQL Injection.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Capçaleres de seguretat i monitoratge.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        .container { max-width: 1300px; margin: 0 auto; }
 
-  <!-- Proyecto 4 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Gestió de Logs Centralitzada</h3></header>
-    <p>Recollida i anàlisi de registres.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Integració amb SIEM per correlació d’esdeveniments.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        /* BUSCADOR */
+        .search-container {
+            margin-bottom: 40px;
+            background: #080c12;
+            padding: 20px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+        }
 
-  <!-- Proyecto 5 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>VPN Segura</h3></header>
-    <p>Implementació d’una xarxa privada virtual.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Xifratge fort i autenticació multifactor.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        .search-label { color: var(--primary); margin-right: 15px; font-weight: bold; }
 
-  <!-- Proyecto 6 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Protecció de Correu Electrònic</h3></header>
-    <p>Filtratge de phishing i malware.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">SPF, DKIM i DMARC configurats.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        #tagSearch {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            color: var(--primary);
+            font-family: inherit;
+            font-size: 1rem;
+            width: 100%;
+            outline: none;
+            padding: 5px;
+        }
 
-  <!-- Proyecto 7 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Hardening de Sistemes</h3></header>
-    <p>Reducció de superfícies d’atac.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Desactivació de serveis i aplicació de parches.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        /* GRID */
+        .grid-archive {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 15px;
+        }
 
-  <!-- Proyecto 8 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Monitoratge de Xarxa</h3></header>
-    <p>Supervisió de tràfic i anomalies.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Alertes amb SNMP i NetFlow.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  <!-- Proyecto 9 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Autenticació Multifactor</h3></header>
-    <p>Protecció d’aplicacions crítiques.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Tokens TOTP, biometria i SMS segurs.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        /* TARJETA */
+        .project-node {
+            background: #080c12;
+            border: 1px solid var(--border);
+            height: 140px;
+            position: relative;
+            transition: 0.3s;
+            overflow: hidden;
+        }
 
-  <!-- Proyecto 10 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Backup i Recuperació</h3></header>
-    <p>Estratègia de còpies de seguretat.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Proves de restauració i plans de contingència.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        .project-node.hidden { display: none; }
 
-  <!-- Proyecto 11 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Seguretat en IoT</h3></header>
-    <p>Protecció de dispositius connectats.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Protocols segurs i segmentació de xarxa.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        /* Animación de parpadeo al aparecer */
+        .project-node.flicker {
+            animation: terminal-flicker 0.3s ease-in-out;
+        }
 
-  <!-- Proyecto 12 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Test de Penetració</h3></header>
-    <p>Simulació d’atacs per detectar vulnerabilitats.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Metodologia OWASP i informes detallats.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        @keyframes terminal-flicker {
+            0% { opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
 
-  <!-- Proyecto 13 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Seguretat en Bases de Dades</h3></header>
-    <p>Protecció de dades sensibles.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Xifratge, permisos i auditories.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        .project-node:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 15px var(--primary-dim);
+        }
 
-  <!-- Proyecto 14 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Gestió d’Identitats</h3></header>
-    <p>Control d’accés centralitzat.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Single Sign-On i provisionament automàtic.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        .node-info { padding: 20px; }
+        .node-id { color: var(--text-gray); font-size: 0.6rem; display: block; margin-bottom: 5px; }
 
-  <!-- Proyecto 15 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Seguretat en Aplicacions Mòbils</h3></header>
-    <p>Protecció contra malware i apps fraudulentes.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Revisió de permisos i sandboxing.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        /* Títulos y Tags (Boceto Layout) */
+        .title-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+        .node-title { font-size: 0.85rem; font-weight: 700; color: #fff; text-transform: uppercase; }
 
-  <!-- Proyecto 16 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Forense Digital</h3></header>
-    <p>Investigació d’incidents de seguretat.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Recollida i preservació de proves digitals.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        .tag {
+            font-size: 0.6rem;
+            padding: 1px 6px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 3px;
+            text-transform: lowercase;
+            opacity: 0.8;
+        }
 
-  <!-- Proyecto 17 -->
-<article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-  <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;">
-    <h3>Seguretat en Cloud</h3>
-  </header>
-  <p>Protecció de serveis al núvol amb bones pràctiques de configuració.</p>
-  <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">
-    Configuracions segures en AWS/Azure, gestió d’IAM, xifratge de dades, polítiques de seguretat i monitoratge continu.
-  </div>
-  <footer style="margin-top:0.5rem;">
-    <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">
-      Veure detall
-    </a>
-  </footer>
-</article>
+        /* Hover Desc */
+        .node-desc {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: #0a161d;
+            border-top: 1px solid var(--primary);
+            padding: 15px;
+            transition: bottom 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
 
+        .node-desc p { font-size: 0.75rem; color: var(--primary); line-height: 1.3; }
+        .project-node:hover .node-desc { bottom: 0; }
 
-      <!-- Proyecto 18 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Detecció de Malware</h3></header>
-    <p>Identificació de software maliciós.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Sandboxing i signatures heurístiques.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+        /* Botón Volver */
+        .footer-nav { text-align: center; margin-top: 50px; }
+        .btn-home {
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 12px 40px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+        .btn-home:hover { background: var(--primary); color: #000; box-shadow: 0 0 20px var(--primary); }
+    </style>
+</head>
+<body>
 
-  <!-- Proyecto 19 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Seguretat en APIs</h3></header>
-    <p>Protecció de serveis REST i GraphQL.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Autenticació, rate limiting i validació d’esquemes.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
+    <div class="container">
+        <header style="margin-bottom: 20px;">
+            <p style="color: var(--text-gray); font-size: 0.65rem;">SISTEMA_DE_ARCHIVOS_ALEX // CARGANDO_20_NODOS...</p>
+            <h1 style="color: var(--primary); text-shadow: 0 0 10px var(--primary-dim);">CENTRAL_REPO</h1>
+        </header>
 
-  <!-- Proyecto 20 -->
-  <article style="background:#1e2340; border:1px solid #2a2f52; border-radius:12px; padding:1.5rem; margin-bottom:1.5rem; color:#fff;">
-    <header style="border-bottom:1px solid #2a2f52; margin-bottom:0.5rem;"><h3>Gestió d’Incidents</h3></header>
-    <p>Resposta i comunicació d’incidents.</p>
-    <div style="background:rgba(0,0,0,0.8); padding:1rem; font-size:0.9rem;">Playbooks, escalat i post-mortem.</div>
-    <footer style="margin-top:0.5rem;">
-      <a href="#" style="display:inline-block; padding:0.4rem 0.8rem; background:rgba(255,255,255,0.1); color:#fff; text-decoration:none; border-radius:6px;">Veure detall</a>
-    </footer>
-  </article>
-</section>
+        <div class="search-container">
+            <span class="search-label">[USER@ROOT ~]$ grep -i</span>
+            <input type="text" id="tagSearch" placeholder="Busca por etiqueta (ej: cyber, red, linux)..." onkeyup="filterProjects()">
+        </div>
+
+        <div class="grid-archive" id="nodeList">
+            </div>
+
+        <div class="footer-nav">
+            <a href="index.html" class="btn-home">_ VOLVER_AL_INICIO</a>
+        </div>
+    </div>
+
+    <script>
+        const proyectos = [
+            {id: "01", t: "VPC Lab Architecture", tags: ["cyber", "maquina virtual", "red"], d: "Laboratorio de routing con topología multi-router y DNS simulado."},
+            {id: "02", t: "Portfolio & CI/CD", tags: ["web", "git", "automatizacion"], d: "Sitio estático con flujo de trabajo automatizado y despliegue continuo."},
+            {id: "03", t: "Incident Reporting System", tags: ["cyber", "logs", "terminal"], d: "Herramienta basada en terminal para registro y exportación de incidentes."},
+            {id: "04", t: "Proxmox Cluster HA", tags: ["virtualizacion", "servidor", "ha"], d: "Alta disponibilidad y migración en vivo de nodos de virtualización."},
+            {id: "05", t: "Ansible Automation", tags: ["automation", "linux", "scripts"], d: "Despliegue masivo de servidores web con monitorización integrada."},
+            {id: "06", t: "OSPF Dynamic Routing", tags: ["red", "cisco", "infra"], d: "Configuración de protocolos dinámicos para redes escalables."},
+            {id: "07", t: "Docker Swarm Hub", tags: ["contenedores", "devops", "ha"], d: "Orquestación de microservicios con balanceo de carga."},
+            {id: "08", t: "pfSense Core Firewall", tags: ["cyber", "red", "security"], d: "Gestión de reglas de filtrado y VPN Site-to-Site segura."},
+            {id: "09", t: "ELK Stack SIEM", tags: ["logs", "cyber", "alertas"], d: "Centralización y análisis de registros de seguridad en tiempo real."},
+            {id: "10", t: "Wireguard Tunneling", tags: ["red", "vpn", "privacy"], d: "Implementación de accesos remotos cifrados de baja latencia."},
+            {id: "11", t: "Linux Kernell Hardening", tags: ["linux", "cyber", "security"], d: "Aseguramiento de sistemas operativos bajo normas CIS."},
+            {id: "12", t: "Zabbix Monitoring", tags: ["infra", "monitor", "alertas"], d: "Supervisión proactiva de hardware y servicios críticos."},
+            {id: "13", t: "OpenLDAP Auth Hub", tags: ["linux", "auth", "infra"], d: "Gestión centralizada de identidades para usuarios de red."},
+            {id: "14", t: "Nginx Reverse Proxy", tags: ["web", "red", "ssl"], d: "Terminación SSL y optimización de tráfico para aplicaciones web."},
+            {id: "15", t: "NAS Storage RAID", tags: ["storage", "backup", "linux"], d: "Gestión de volúmenes de almacenamiento compartido iSCSI."},
+            {id: "16", t: "GitHub Actions CI", tags: ["git", "automation", "devops"], d: "Flujos de integración para validación automática de código."},
+            {id: "17", t: "OpenVAS Security Audit", tags: ["cyber", "pentest", "scans"], d: "Escaneo periódico de vulnerabilidades en infraestructura."},
+            {id: "18", t: "RADIUS WiFi Enterprise", tags: ["red", "wifi", "auth"], d: "Seguridad inalámbrica corporativa con autenticación 802.1X."},
+            {id: "19", t: "MySQL High Availability", tags: ["db", "ha", "servidor"], d: "Clústeres de base de datos con replicación maestro-esclavo."},
+            {id: "20", t: "Forensic Analyzer", tags: ["cyber", "logs", "linux"], d: "Herramienta de análisis post-mortem de eventos del sistema."}
+        ];
+
+        const container = document.getElementById('nodeList');
+
+        function render() {
+            container.innerHTML = proyectos.map(p => `
+                <div class="project-node" data-search="${p.tags.join(' ')} ${p.t}">
+                    <div class="node-info">
+                        <span class="node-id">REF_${p.id}</span>
+                        <div class="title-row">
+                            <div class="node-title">${p.t}</div>
+                            ${p.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="node-desc"><p>${p.d}</p></div>
+                </div>
+            `).join('');
+        }
+
+        function filterProjects() {
+            const val = document.getElementById('tagSearch').value.toLowerCase();
+            const cards = document.querySelectorAll('.project-node');
+
+            cards.forEach(card => {
+                const searchData = card.getAttribute('data-search').toLowerCase();
+                if (searchData.includes(val)) {
+                    if (card.classList.contains('hidden')) {
+                        card.classList.remove('hidden');
+                        card.classList.add('flicker'); // Efecto terminal
+                        setTimeout(() => card.classList.remove('flicker'), 300);
+                    }
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        render();
+    </script>
+</body>
+</html>
