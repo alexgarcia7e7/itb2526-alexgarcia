@@ -53,51 +53,152 @@
         }
         input:focus { border-color: var(--emerald); }
 
-        /* GRID DE PROYECTOS */
+        /* LISTADO */
         .projects-list {
             max-width: 900px; margin: 0 auto;
-            display: flex; flex-direction: column; gap: 10px;
+            display: flex; flex-direction: column; gap: 12px;
         }
 
+        /* TARJETA CON EXPANSIÓN PARA TODOS */
         .card {
-            background: #0a1118; border: 1px solid var(--border);
-            padding: 20px; display: flex; justify-content: space-between; align-items: center;
-            position: relative; overflow: hidden; transition: 0.2s;
+            background: #0a1118;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
-        .card:hover { border-color: var(--emerald); background: #0d1721; }
+
+        .card:hover {
+            border-color: var(--emerald);
+            background: #0d1721;
+        }
+
+        .card-header {
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
 
         .card-info { flex: 1; }
         .card-id { color: var(--emerald); font-weight: bold; font-size: 0.8rem; margin-right: 10px; }
-        .card-title { font-size: 1rem; color: #fff; text-transform: uppercase; display: inline-block; }
+        .card-title { font-size: 0.95rem; color: #fff; text-transform: uppercase; }
 
-        .tags-row { margin-top: 8px; display: flex; gap: 8px; }
+        .tags-row { margin-top: 6px; display: flex; gap: 8px; }
         .tag {
-            font-size: 0.65rem; padding: 2px 8px; border-radius: 4px;
+            font-size: 0.6rem; padding: 1px 6px; border-radius: 3px;
             border: 1px solid var(--emerald); color: var(--emerald);
         }
         .tag.yellow { border-color: var(--tag-yellow); color: var(--tag-yellow); }
 
-        /* HOVER DESCRIPTION */
-        .hover-desc {
-            position: absolute; left: 0; top: 100%; width: 100%; height: 100%;
-            background: rgba(0, 255, 157, 0.95); color: #000;
-            padding: 20px; transition: top 0.3s ease;
-            display: flex; align-items: center; font-weight: bold; font-size: 0.85rem;
+        /* CONTENIDO EXPANDIBLE */
+        .card-body {
+            max-height: 0;
+            opacity: 0;
+            padding: 0 20px;
+            transition: all 0.4s ease-in-out;
+            background: rgba(0, 255, 157, 0.02);
         }
-        .card:hover .hover-desc { top: 0; }
 
+        .card:hover .card-body {
+            max-height: 160px; /* Ajustado para que quepa el botón si existe */
+            opacity: 1;
+            padding-bottom: 20px;
+            border-top: 1px solid rgba(26, 38, 51, 0.5);
+        }
+
+        .project-desc {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin: 15px 0;
+            line-height: 1.4;
+        }
+
+        /* BOTÓN SOLO PARA ALGUNOS */
         .btn-view {
-            border: 1px solid var(--emerald); color: var(--emerald);
-            background: transparent; padding: 8px 15px; font-size: 0.7rem; cursor: pointer;
+            display: inline-block;
+            border: 1px solid var(--emerald);
+            color: var(--emerald);
+            padding: 6px 12px;
+            font-size: 0.65rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn-view:hover {
+            background: var(--emerald);
+            color: #000;
         }
 
         .footer-nav { text-align: center; margin-top: 50px; }
         .btn-home {
             color: var(--emerald); border: 1px solid var(--emerald);
-            padding: 12px 30px; text-decoration: none; font-size: 0.8rem;
+            padding: 10px 25px; text-decoration: none; font-size: 0.8rem;
         }
 
         .hidden { display: none; }
+
+        /* RESPONSIVE DESIGN */
+
+/* Para tablets y móviles grandes */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-area {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+
+    .search-box {
+        flex-direction: column; /* El buscador y el filtro se ponen uno sobre otro */
+    }
+
+    .projects-list {
+        padding: 0 10px;
+    }
+}
+
+/* Para móviles pequeños */
+@media (max-width: 480px) {
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .card-id {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .card-title {
+        font-size: 0.85rem; /* Texto un poco más pequeño para que no desborde */
+    }
+
+    .site-nav ul {
+        gap: 10px;
+    }
+
+    .site-nav a {
+        font-size: 0.7rem;
+    }
+
+    /* Ajuste del botón para que sea más fácil de pulsar en táctil */
+    .btn-view {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -105,9 +206,8 @@
     <header class="site-header">
         <nav class="site-nav">
             <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="#">Sobre mí</a></li>
-                <li><a href="#">Proyectos</a></li>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../contacte/formulari.html">Contacto</a></li>
             </ul>
         </nav>
         <div style="color: var(--emerald); font-size: 0.7rem;">ALEX_OS v1.0</div>
@@ -116,7 +216,7 @@
     <div class="search-area">
         <span class="grep-label">[root@terminal]# grep --filter --all-projects</span>
         <div class="search-box">
-            <input type="text" id="q" placeholder="Buscar por nombre..." onkeyup="filter()">
+            <input type="text" id="q" placeholder="Buscar por nombre..." onkeyup="filter()"</input>
             <select id="f" onchange="filter()">
                 <option value="all">Todas las categorías</option>
                 <option value="cyber">Ciberseguridad</option>
@@ -128,164 +228,245 @@
 
     <div class="projects-list" id="list">
         <div class="card" data-cat="infra">
-            <div class="card-info">
-                <span class="card-id">[PX-01]</span><h3 class="card-title">VPC Lab Architecture</h3>
-                <div class="tags-row"><span class="tag">infra</span><span class="tag yellow">virtual</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[PX-01]</span><h3 class="card-title">VPC Lab Architecture</h3>
+                    <div class="tags-row"><span class="tag">infra</span><span class="tag yellow">virtual</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Diseño de red segmentada con DMZ y VLANs corporativas.</div>
+            <div class="card-body">
+                <p class="project-desc">Diseño de red segmentada con DMZ y VLANs corporativas mediante Proxmox.</p>
+                <a href="../proyectos/proyecto1.html" class="btn-view">VER DETALLES _</a>
+            </div>
         </div>
+
         <div class="card" data-cat="automation">
-            <div class="card-info">
-                <span class="card-id">[AN-04]</span><h3 class="card-title">Ansible Auto-Provision</h3>
-                <div class="tags-row"><span class="tag">automation</span><span class="tag yellow">scripts</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[AN-04]</span><h3 class="card-title">Ansible Auto-Provision</h3>
+                    <div class="tags-row"><span class="tag">automation</span><span class="tag yellow">scripts</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Automatización de despliegue de nodos Debian mediante Playbooks.</div>
+            <div class="card-body">
+                <p class="project-desc">Automatización de despliegue de nodos Debian mediante Playbooks optimizados.</p>
+                <a href="../proyectos/proyecto2.html" class="btn-view">VER DETALLES _</a>
+            </div>
         </div>
+
         <div class="card" data-cat="cyber">
-            <div class="card-info">
-                <span class="card-id">[SEC-01]</span><h3 class="card-title">Incident Reporting</h3>
-                <div class="tags-row"><span class="tag">cyber</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[SEC-01]</span><h3 class="card-title">Incident Reporting</h3>
+                    <div class="tags-row"><span class="tag">cyber</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Sistema de registro forense para respuesta ante incidentes.</div>
+            <div class="card-body">
+                <p class="project-desc">Sistema de registro y exportación de incidentes forenses en formato estructurado.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="infra">
-            <div class="card-info">
-                <span class="card-id">[VX-05]</span><h3 class="card-title">Proxmox HA Cluster</h3>
-                <div class="tags-row"><span class="tag">infra</span><span class="tag yellow">ha</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[VX-05]</span><h3 class="card-title">Proxmox HA Cluster</h3>
+                    <div class="tags-row"><span class="tag">infra</span><span class="tag yellow">ha</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Configuración de alta disponibilidad para servidores críticos.</div>
+            <div class="card-body">
+                <p class="project-desc">Configuración de almacenamiento Ceph y alta disponibilidad para entornos críticos.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="cyber">
-            <div class="card-info">
-                <span class="card-id">[SEC-02]</span><h3 class="card-title">T-Pot Honeypot</h3>
-                <div class="tags-row"><span class="tag">cyber</span><span class="tag yellow">intel</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[SEC-02]</span><h3 class="card-title">T-Pot Honeypot</h3>
+                    <div class="tags-row"><span class="tag">cyber</span><span class="tag yellow">intel</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Despliegue de señuelos para recolección de amenazas globales.</div>
+            <div class="card-body">
+                <p class="project-desc">Análisis de tráfico malicioso global mediante sensores distribuidos.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="infra">
-            <div class="card-info">
-                <span class="card-id">[RT-09]</span><h3 class="card-title">OSPF Dynamic Mesh</h3>
-                <div class="tags-row"><span class="tag">infra</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[RT-09]</span><h3 class="card-title">OSPF Dynamic Mesh</h3>
+                    <div class="tags-row"><span class="tag">infra</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Implementación de enrutamiento dinámico en redes multi-área.</div>
+            <div class="card-body">
+                <p class="project-desc">Redundancia de red mediante enrutamiento dinámico en topologías complejas.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="automation">
-            <div class="card-info">
-                <span class="card-id">[DK-12]</span><h3 class="card-title">Docker Swarm Hub</h3>
-                <div class="tags-row"><span class="tag">automation</span><span class="tag yellow">devops</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[DK-12]</span><h3 class="card-title">Docker Swarm Hub</h3>
+                    <div class="tags-row"><span class="tag">automation</span><span class="tag yellow">devops</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Orquestación de microservicios escalables.</div>
+            <div class="card-body">
+                <p class="project-desc">Gestión de contenedores escalables con balanceador de carga integrado.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="cyber">
-            <div class="card-info">
-                <span class="card-id">[SEC-03]</span><h3 class="card-title">PFsense Firewall Core</h3>
-                <div class="tags-row"><span class="tag">cyber</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[SEC-03]</span><h3 class="card-title">PFsense Firewall Core</h3>
+                    <div class="tags-row"><span class="tag">cyber</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Gestión perimetral avanzada y VPN de túnel seguro.</div>
+            <div class="card-body">
+                <p class="project-desc">Implementación de reglas IDS/IPS y filtrado geográfico de IP.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="infra">
-            <div class="card-info">
-                <span class="card-id">[MN-01]</span><h3 class="card-title">Zabbix Monitoring</h3>
-                <div class="tags-row"><span class="tag">infra</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[MN-01]</span><h3 class="card-title">Zabbix Monitoring</h3>
+                    <div class="tags-row"><span class="tag">infra</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Supervisión en tiempo real de toda la infraestructura.</div>
+            <div class="card-body">
+                <p class="project-desc">Dashboards de telemetría y alertas mediante SNMP y agentes activos.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="automation">
-            <div class="card-info">
-                <span class="card-id">[GIT-02]</span><h3 class="card-title">CI/CD Pipeline</h3>
-                <div class="tags-row"><span class="tag">automation</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[GIT-02]</span><h3 class="card-title">CI/CD Pipeline</h3>
+                    <div class="tags-row"><span class="tag">automation</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Flujo de integración continua mediante GitHub Actions.</div>
+            <div class="card-body">
+                <p class="project-desc">Automatización de tests y despliegue en entornos de desarrollo y producción.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="infra">
-            <div class="card-info">
-                <span class="card-id">[DB-05]</span><h3 class="card-title">MySQL HA Cluster</h3>
-                <div class="tags-row"><span class="tag">infra</span><span class="tag yellow">database</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[DB-05]</span><h3 class="card-title">MySQL HA Cluster</h3>
+                    <div class="tags-row"><span class="tag">infra</span><span class="tag yellow">database</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Base de datos redundante con replicación síncrona.</div>
+            <div class="card-body">
+                <p class="project-desc">Sincronización de datos entre nodos para asegurar cero pérdida de información.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="cyber">
-            <div class="card-info">
-                <span class="card-id">[SEC-04]</span><h3 class="card-title">Kernell Hardening</h3>
-                <div class="tags-row"><span class="tag">cyber</span><span class="tag yellow">linux</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[SEC-04]</span><h3 class="card-title">Kernell Hardening</h3>
+                    <div class="tags-row"><span class="tag">cyber</span><span class="tag yellow">linux</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Aseguramiento de sistemas operativos bajo normas CIS.</div>
+            <div class="card-body">
+                <p class="project-desc">Restricción de syscalls y refuerzo de memoria en servidores expuestos.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="infra">
-            <div class="card-info">
-                <span class="card-id">[LD-01]</span><h3 class="card-title">OpenLDAP Auth Hub</h3>
-                <div class="tags-row"><span class="tag">infra</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[LD-01]</span><h3 class="card-title">OpenLDAP Auth Hub</h3>
+                    <div class="tags-row"><span class="tag">infra</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Centralización de identidades y acceso de usuarios.</div>
+            <div class="card-body">
+                <p class="project-desc">Directorio de usuarios centralizado con autenticación SASL/TLS.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="automation">
-            <div class="card-info">
-                <span class="card-id">[PY-08]</span><h3 class="card-title">Python Sys Auditor</h3>
-                <div class="tags-row"><span class="tag">automation</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[PY-08]</span><h3 class="card-title">Python Sys Auditor</h3>
+                    <div class="tags-row"><span class="tag">automation</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Scripting para la detección de configuraciones erróneas.</div>
+            <div class="card-body">
+                <p class="project-desc">Scripts de limpieza y análisis periódico de estados del sistema.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="cyber">
-            <div class="card-info">
-                <span class="card-id">[SEC-05]</span><h3 class="card-title">OpenVAS Scanner</h3>
-                <div class="tags-row"><span class="tag">cyber</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[SEC-05]</span><h3 class="card-title">OpenVAS Scanner</h3>
+                    <div class="tags-row"><span class="tag">cyber</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Auditoría recurrente de vulnerabilidades en red local.</div>
+            <div class="card-body">
+                <p class="project-desc">Detección proactiva de CVEs en toda la infraestructura de red.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="infra">
-            <div class="card-info">
-                <span class="card-id">[NET-03]</span><h3 class="card-title">RADIUS WiFi Ent.</h3>
-                <div class="tags-row"><span class="tag">infra</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[NET-03]</span><h3 class="card-title">RADIUS WiFi Ent.</h3>
+                    <div class="tags-row"><span class="tag">infra</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Seguridad WPA3 con autenticación basada en certificados.</div>
+            <div class="card-body">
+                <p class="project-desc">Certificados digitales para acceso WiFi seguro sin contraseñas estáticas.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="automation">
-            <div class="card-info">
-                <span class="card-id">[TF-01]</span><h3 class="card-title">Terraform VPC Bot</h3>
-                <div class="tags-row"><span class="tag">automation</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[TF-01]</span><h3 class="card-title">Terraform VPC Bot</h3>
+                    <div class="tags-row"><span class="tag">automation</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Infraestructura como código para despliegues rápidos.</div>
+            <div class="card-body">
+                <p class="project-desc">Infraestructura inmutable aplicada a servicios en la nube.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="cyber">
-            <div class="card-info">
-                <span class="card-id">[SEC-06]</span><h3 class="card-title">ELK Stack SIEM</h3>
-                <div class="tags-row"><span class="tag">cyber</span><span class="tag yellow">logs</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[SEC-06]</span><h3 class="card-title">ELK Stack SIEM</h3>
+                    <div class="tags-row"><span class="tag">cyber</span><span class="tag yellow">logs</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Análisis de logs y visualización de eventos de seguridad.</div>
+            <div class="card-body">
+                <p class="project-desc">Visualización avanzada de intentos de intrusión mediante mapas de calor.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="infra">
-            <div class="card-info">
-                <span class="card-id">[ST-04]</span><h3 class="card-title">SAN Storage iSCSI</h3>
-                <div class="tags-row"><span class="tag">infra</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[ST-04]</span><h3 class="card-title">SAN Storage iSCSI</h3>
+                    <div class="tags-row"><span class="tag">infra</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">Gestión de volúmenes de almacenamiento compartido.</div>
+            <div class="card-body">
+                <p class="project-desc">Configuración de almacenamiento remoto por bloques de alto rendimiento.</p>
+            </div>
         </div>
+
         <div class="card" data-cat="cyber">
-            <div class="card-info">
-                <span class="card-id">[SEC-07]</span><h3 class="card-title">Wireguard Node</h3>
-                <div class="tags-row"><span class="tag">cyber</span></div>
+            <div class="card-header">
+                <div class="card-info">
+                    <span class="card-id">[SEC-07]</span><h3 class="card-title">Wireguard Node</h3>
+                    <div class="tags-row"><span class="tag">cyber</span></div>
+                </div>
             </div>
-            <button class="btn-view">DETALLES</button>
-            <div class="hover-desc">VPN de alto rendimiento para accesos administrativos remotos.</div>
+            <div class="card-body">
+                <p class="project-desc">VPN cifrada mediante Curve25519 para accesos administrativos rápidos.</p>
+            </div>
         </div>
     </div>
 
@@ -296,13 +477,12 @@
     <script>
         function filter() {
             const query = document.getElementById('q').value.toLowerCase();
-            const cat = document.getElementById('f').value;
+            const cat = document.getElementById('f').value;ww
             const cards = document.querySelectorAll('.card');
 
             cards.forEach(card => {
                 const title = card.querySelector('.card-title').innerText.toLowerCase();
                 const category = card.getAttribute('data-cat');
-
                 const matchesQuery = title.includes(query);
                 const matchesCat = (cat === 'all' || category === cat);
 

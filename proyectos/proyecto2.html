@@ -112,6 +112,64 @@
             border-top: 1px solid var(--border-tech);
             background: #05080c;
         }
+
+        /* RESPONSIVE DESIGN */
+
+/* Para tablets y móviles grandes */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-area {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+
+    .search-box {
+        flex-direction: column; /* El buscador y el filtro se ponen uno sobre otro */
+    }
+
+    .projects-list {
+        padding: 0 10px;
+    }
+}
+
+/* Para móviles pequeños */
+@media (max-width: 480px) {
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .card-id {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .card-title {
+        font-size: 0.85rem; /* Texto un poco más pequeño para que no desborde */
+    }
+
+    .site-nav ul {
+        gap: 10px;
+    }
+
+    .site-nav a {
+        font-size: 0.7rem;
+    }
+
+    /* Ajuste del botón para que sea más fácil de pulsar en táctil */
+    .btn-view {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -123,7 +181,11 @@
         </header>
 
         <nav class="back-nav">
-            <a href="index.html" class="btn-back"><< VOLVER_AL_NODO_CENTRAL</a>
+            <a href="../index.html" class="btn-back"><< VOLVER_AL_NODO_CENTRAL</a>
+             <a href="../proyectos/nombrar_proyectos.html" class="btn-back"><< Lista proyectos</a>
+            <a href="../proyectos/proyecto1.html" class="btn-back"><< Proyecto 1</a>
+            <a href="../contacte/formulari.html" class="btn-back"><< Contacto</a>
+
         </nav>
 
         <main class="content">

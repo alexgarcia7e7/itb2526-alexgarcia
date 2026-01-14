@@ -3,118 +3,286 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Formulari de contacte</title>
+  <title>Alex | Contacte [SYSTEM_MESSAGE]</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0f1221;
-      color: #fff;
-      margin: 0;
+    :root {
+      --bg: #05070a;
+      --emerald: #00ff9d;
+      --emerald-dim: rgba(0, 255, 157, 0.1);
+      --error: #ff4d4d;
+      --border: #1a2633;
+      --surface: #0a1118;
     }
-    header, footer {
-      background: #171a2e;
-      padding: 1rem;
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--bg);
+      color: #e0e6ed;
+      background-image: radial-gradient(var(--emerald-dim) 1px, transparent 1px);
+      background-size: 30px 30px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER / NAV */
+    header {
+      background: rgba(10, 17, 24, 0.95);
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--emerald);
+      box-shadow: 0 0 15px var(--emerald-dim);
+    }
+
+    h1 {
+      font-size: 1.2rem;
+      color: var(--emerald);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
       text-align: center;
     }
-    main {
-      max-width: 600px;
-      margin: 2rem auto;
-      background: #1e2340;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    h1 { margin-top: 0; }
-    label { display: block; margin-top: 1rem; }
-    input, textarea {
-      width: 100%;
-      padding: 0.6rem;
-      margin-top: 0.3rem;
-      border-radius: 6px;
-      border: 1px solid #2a2f52;
-      background: #0f1221;
-      color: #fff;
-    }
-    input:invalid, textarea:invalid {
-      border-color: #ff4d4d;
-    }
-    input:valid, textarea:valid {
-      border-color: #20d9ff;
-    }
-    button {
-      margin-top: 1rem;
-      padding: 0.6rem 1.2rem;
-      border: none;
-      border-radius: 6px;
-      background: #20d9ff;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #6b7cff;
-      color: #fff;
-    }
+
     nav ul {
       list-style: none;
       display: flex;
       justify-content: center;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
+      gap: 2rem;
     }
+
     nav a {
-      color: #fff;
+      color: #7a8c99;
       text-decoration: none;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      transition: 0.3s;
     }
-    nav a:hover {
-      background: #2a2f52;
+
+    nav a:hover, nav a[aria-current="page"] {
+      color: var(--emerald);
+      text-shadow: 0 0 8px var(--emerald);
     }
+
+    /* FORMULARI */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 500px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .form-container::before {
+      content: "STATUS: READY_TO_SEND";
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      background: var(--bg);
+      padding: 0 10px;
+      font-size: 0.6rem;
+      color: var(--emerald);
+    }
+
+    label {
+      display: block;
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--emerald);
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: 1px solid var(--border);
+      background: #05070a;
+      color: #fff;
+      font-family: inherit;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    /* VALIDACIÓ (El que volies conservar) */
+    input:focus, textarea:focus {
+      border-color: var(--emerald);
+      box-shadow: 0 0 10px var(--emerald-dim);
+    }
+
+    /* Quan és invàlid i l'usuari està escrivint o ha sortit */
+    input:not(:placeholder-shown):invalid,
+    textarea:not(:placeholder-shown):invalid {
+      border-color: var(--error) !important;
+      box-shadow: 0 0 10px rgba(255, 77, 77, 0.2);
+    }
+
+    /* Quan és vàlid */
+    input:not(:placeholder-shown):valid,
+    textarea:not(:placeholder-shown):valid {
+      border-color: var(--emerald);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 2rem;
+      padding: 15px;
+      border: 1px solid var(--emerald);
+      background: transparent;
+      color: var(--emerald);
+      font-family: inherit;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: var(--emerald);
+      color: var(--bg);
+      box-shadow: 0 0 20px var(--emerald);
+    }
+
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.65rem;
+      color: #4a5568;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Help text for validation */
+    input + span {
+      display: none;
+      font-size: 0.6rem;
+      color: var(--error);
+      margin-top: 5px;
+    }
+
+    input:not(:placeholder-shown):invalid + span {
+      display: block;
+    }
+
+    /* RESPONSIVE DESIGN */
+
+/* Para tablets y móviles grandes */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-area {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+
+    .search-box {
+        flex-direction: column; /* El buscador y el filtro se ponen uno sobre otro */
+    }
+
+    .projects-list {
+        padding: 0 10px;
+    }
+}
+
+/* Para móviles pequeños */
+@media (max-width: 480px) {
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .card-id {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .card-title {
+        font-size: 0.85rem; /* Texto un poco más pequeño para que no desborde */
+    }
+
+    .site-nav ul {
+        gap: 10px;
+    }
+
+    .site-nav a {
+        font-size: 0.7rem;
+    }
+
+    /* Ajuste del botón para que sea más fácil de pulsar en táctil */
+    .btn-view {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+}
+
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Contacte</h1>
+    <h1>&gt; CONTACT_PROTOCOL</h1>
     <nav>
       <ul>
         <li><a href="../index.html">Inici</a></li>
-        <li><a href="../proyectos/nombrar_proyectos.html">Projectes</a></li>
-        <li><a href="formulari.html" aria-current="page">Contacte</a></li>
+        <li><a href="../proyectos/nombrar_proyectos.html">Proyectos</a></li>
+        <li><a href="../proyectos/proyecto1.html">Proyecto 1</a></li>
+        <li><a href="../proyectos/proyecto2.html">Proyecto 2</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
-    <form>
-      <!-- Nom: només lletres -->
-      <label for="nom">Nom complet:</label>
-      <input type="text" id="nom" name="nom"
-             required
-             pattern="[A-Za-zÀ-ÿ\s]{3,}"
-             title="Nom amb mínim 3 lletres, només caràcters alfabètics.">
+    <div class="form-container">
+      <form>
+        <label for="nom">Nom complet:</label>
+        <input type="text" id="nom" name="nom"
+               placeholder="Escriu el teu nom..."
+               required
+               pattern="[A-Za-zÀ-ÿ\s]{3,}"
+               title="Mínim 3 lletres, només caràcters alfabètics.">
+        <span>* Nom massa curt o caràcters no vàlids.</span>
 
-      <!-- Email: format correu -->
-      <label for="email">Correu electrònic:</label>
-      <input type="email" id="email" name="email"
-             required
-             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-             title="Introdueix un correu vàlid (exemple@domini.com)">
+        <label for="email">Correu electrònic:</label>
+        <input type="email" id="email" name="email"
+               placeholder="correu@exemple.com"
+               required
+               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        <span>* Introdueix un correu electrònic vàlid.</span>
 
-      <!-- Telèfon: només números, 9 dígits -->
-      <label for="telefon">Telèfon:</label>
-      <input type="tel" id="telefon" name="telefon"
-             required
-             pattern="[0-9]{9}"
-             title="Introdueix un número de 9 dígits.">
+        <label for="telefon">Telèfon:</label>
+        <input type="tel" id="telefon" name="telefon"
+               placeholder="600000000"
+               required
+               pattern="[0-9]{9}">
+        <span>* El telèfon ha de tenir 9 números.</span>
 
-      <!-- Missatge -->
-      <label for="missatge">Missatge:</label>
-      <textarea id="missatge" name="missatge" rows="5" required></textarea>
+        <label for="missatge">Missatge:</label>
+        <textarea id="missatge" name="missatge" rows="5" placeholder="Com puc ajudar-te?" required></textarea>
 
-      <button type="submit">Enviar</button>
-    </form>
+        <button type="submit">EXECUTE_SEND</button>
+      </form>
+    </div>
   </main>
-  <footer>&copy; 2025 Alex - Formulari de contacte</footer>
+
+  <footer>
+    [ TERMINAL v1.0.4 ] - © 2026 Alex - ENCRYPTED_CONNECTION
+  </footer>
+
 </body>
 </html>
